@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+<head>
+    <!-- For Angular's routing. -->
+    <base href="/">
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>HealthCreek</title>
+    <meta content="HealthCreek clinical transactions prototype, optimized for clinician happiness." name="description">
+
+    <!-- Font links -->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+	<!-- Vendor css and fonts -->
+	<link rel="stylesheet" href="./app/styles/vendor/css/vendor.min.css" />
+
+	<!-- App css and fonts -->
+	<link rel="stylesheet" href="./app/styles/main.min.css" />
+
+
+
+    <!-- Service worker support is disabled by default.
+       Install the worker script and uncomment to enable.
+       Only enable service workers in production.
+  <script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/worker.js').catch(function(err) {
+        console.log('Error installing service worker: ', err);
+      });
+    }
+  </script>
+  -->
+</head>
+
+<body>
+    <healthcreek-app>
+        <!-- <span class="glyphicon glyphicon-cloud-download"></span> Loading the things! -->
+    </healthcreek-app>
+    <script src="./app/scripts/vendor.min.js"></script>
+	<script src="./app/scripts/vendor.bundle.js"></script>
+	<script src="./app/scripts/bundle.js"></script>
+
+    <!-- <script>
+        System.config({
+            packages: {
+                app: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        System.import('app.js').then(null, console.error.bind(console));
+    </script> -->
+</body>
+
+</html>

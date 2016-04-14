@@ -1,0 +1,39 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "noImplicitAny": false,
+        "outDir": "dist",
+        "rootDir": ".",
+        "sourceMap": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "node"
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "filesGlob": [
+        "typings/browser.d.ts",
+        "src/**/*.ts"
+    ],
+    "atom": {
+        "rewriteTsconfig": true
+    },
+    "files": [
+        "typings/browser.d.ts",
+        "src/app/components/api.component.ts",
+        "src/app/components/home.component.ts",
+        "src/app/directives/auto-grow.directive.ts",
+        "src/app/directives/highlight.directive.ts",
+        "src/app/healthcreek.spec.ts",
+        "src/app/healthcreek.ts",
+        "src/app/models/user.model.ts",
+        "src/app/pipes/humanizeBytes.pipe.ts",
+        "src/app/services/healthcreek.service.ts",
+        "src/app/services/search.service.ts",
+        "src/app/services/user.service.ts",
+        "src/main.ts",
+        "src/vendor.ts"
+    ]
+}

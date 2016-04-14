@@ -1,0 +1,91 @@
+body {
+    background-color: none;
+    background: url('/app/images/textures/tileable_wood_texture.png') repeat;
+}
+input:invalid,
+textarea:invalid {
+    box-shadow: 0 10px 10px rgba(220,13,23, .5);
+}
+header {
+    text-shadow: 0 4px 4px rgba(0,0,0,.2);
+    a {
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+    }
+    a:hover {
+        text-decoration: none;
+        text-shadow: -4px 4px 4px rgba(0,0,0,.4);
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+    }
+}
+footer p > span {
+    padding: 20px;
+}
+.jumbotron {
+    box-shadow: 0 20px 20px rgba(0,0,0,.8);
+    background-color: none;
+    background: url('/app/images/textures/xv.png') repeat;
+}
+#tabs .nav-tabs li a:hover {
+    background-color: rgba(0,0,0,.08);
+    border-top: 1px solid rgba(0,0,0,.1);
+    border-left: 1px solid rgba(0,0,0,.1);
+    border-right: 1px solid rgba(0,0,0,.1);
+}
+#tabs .nav-tabs li.active a {
+    background-color: none;
+    background: url('/app/images/textures/crossword.png') repeat;
+}
+#tabs .tab-pane {
+    background-color: none;
+    background: url('/app/images/textures/crossword.png') repeat;
+    box-shadow: 0 20px 20px rgba(0,0,0,.8);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+#tabs .tab-content {
+    border-left: 1px solid rgb(221, 221, 221);
+    border-right: 1px solid rgb(221, 221, 221);
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+.highlight {
+    background: rgba(230,230,0,.5);
+}
+@media(max-width:768px) {
+    .tagline {
+        display: none;
+    }
+}
+table.table tbody {
+    tr.selected {
+        background-color: #a7c6d8;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+    }
+    tr {
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+        // td .btn {
+        //     padding: 2px;
+        // }
+    }
+    tr:hover {
+        // cursor: pointer;
+    }
+    tr:hover:not(.selected) {
+        background-color: #c7e6f8;
+        -webkit-transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -o-transition: all 0.2s ease-out;
+        transition: all 0.2s ease-out;
+    }
+}

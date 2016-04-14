@@ -1,0 +1,24 @@
+# Files
+.DS_Store
+*.css
+*.zip
+*.tar.gz
+
+# Exclude bower components and fonts
+src/bower_components
+src/app/scripts
+
+#Exclude npm modules
+node_modules
+
+#Exclude build, dist, and temp
+build
+dist
+temp
+
+
+#Exclude docs
+doc
+
+#Exclude logs
+npm-debug.log
