@@ -1,24 +1,27 @@
 import {Component, Injectable} from 'angular2/core';
+
 import {Http} from 'angular2/http';
 import 'rxjs/add/operator/map';
+import {Observable} from 'rxjs/Observable';
 
 import {HealthCreekService} from './healthcreek.service';
 
 @Injectable()
 @Component({
-	providers: [Http, HealthCreekService]
-})
-export class UserService {
 
-	private path = '/User';
-	private users;
+})
+export class ClientService {
+
+	path = '/clients';
 
 	constructor(private healthCreekService: HealthCreekService, private http: Http) {
+
 	}
 
-	index() {
+	public index(): Observable<Client> {
 		var url = this.healthCreekService.getUrl() + this.path;
-		return this.http.get(url).map(res => res.json());
+		var result = <Observable<Client>>this.http.get(url).map(res => res.json());
+		return result;
 	}
 
 }

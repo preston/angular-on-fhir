@@ -20,7 +20,7 @@
   "devDependencies": {
     "bootstrap": "^3.3.6",
     "jquery": "^2.2.1",
-    "system.js": "^0.19.23"
+    "system.js": "^0.19.26"
   },
   "dependencies": {
     "font-awesome": "^4.5.0"

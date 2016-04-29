@@ -1,0 +1,61 @@
+<div class="container-fluid">
+<br>
+<div class="well">
+	<div class="row">
+		<div class="col-sm-6">
+			<form class="form-horizontal" (submit)="search()" role="form">
+				<div class="form-group">
+					<label for="client_select"><span class="glyphicon glyphicon-book"></span> Client</label>
+					<select class="form-control" id="client_select" (change)="selectClient($event.target.value)">
+						<option *ngFor="#b of clients, #i = index" [value]="b.slug" [selected]="b.slug == client.slug">{{b.name}}</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="client_search_text"><span class="glyphicon glyphicon-search"></span> Full Text Search</label>
+					<div class="input-group">
+						<input autofocus="true" class="form-control" (keyup)="search()" [(ngModel)]="searchText" type="search">
+						<span class="input-group-btn">
+							<button class="btn btn-primary" [disabled]="!validSearch()" type="submit">
+								<span class="glyphicon glyphicon-search"></span> Search
+							</button>
+						</span>
+					</div>
+					<span class="text-muted">Queries must be at least 3 characters.</span>
+					<span class="text-right" *ngIf="validSearch() && verses.length > 0">
+					<span class="badge">{{verses.length}} results</span>
+					<i class="text-danger" *ngIf="verses.length >= 100"> (limited)</i>
+					</span>
+				</div>
+			</form>
+		</div>
+		<div class="col-sm-6">
+			<h3><span class="glyphicon glyphicon-search"></span> What does this do?</h3>
+			<p class="help-block">The tool allows you to search the entire client, based on the translation of your choosing. You may seperate multiple words using spaces, though results are limited to 100 per query.</p>
+		</div>
+	</div>
+</div>
+<div *ngIf="verses.length > 0">
+	<table class="table table-condensed table-striped">
+		<thead>
+			<tr>
+				<th class="col-sm-1"><a (click)="resort()">Book</a></th>
+				<th class="col-sm-1">Chapter</th>
+				<th class="col-sm-1">Verse</th>
+				<th class="col-sm-8">Text</th>
+				<th class="col-sm-1"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="#v of verses">
+				<td>{{v.book.name}}</td>
+				<td>{{v.chapter}}</td>
+				<td>{{v.ordinal}}</td>
+				<td [innerHTML]="v.highlightedText"></td>
+				<td><a [href]="verseMailTo(v)">
+					<span class="glyphicon glyphicon-send"></span>&nbsp;Email
+				</a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</div>

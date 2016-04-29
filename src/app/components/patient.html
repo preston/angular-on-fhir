@@ -1,0 +1,20 @@
+<span class="badge">{{total}}</span>
+<div *ngIf="patients">
+	<table class="table table-condensed table-striped">
+		<thead>
+			<tr>
+				<!-- <th class="col-sm-1"><a (click)="resort()">ID</a></th> -->
+				<th class="col-sm-1">ID</th>
+				<th class="col-sm-1">Given Name</th>
+				<th class="col-sm-1">Family Name</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let p of patients">
+				<td>{{p.resource.id}}</td>
+				<td>{{p.resource.name[0].given[0]}}</td>
+				<td>{{p.resource.name[0].family[0]}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

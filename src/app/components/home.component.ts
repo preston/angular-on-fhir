@@ -1,9 +1,10 @@
 import {Component} from 'angular2/core';
+import {PatientComponent} from './patient.component';
 
 @Component({
     selector: 'home',
     templateUrl: 'app/components/home.html',
-    directives: []
+    directives: [PatientComponent]
 })
 export class HomeComponent {
 
