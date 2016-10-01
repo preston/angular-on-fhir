@@ -1,0 +1,68 @@
+body {
+  background-color: none;
+  background: url('/app/images/textures/tileable_wood_texture.png') repeat;
+}
+input:invalid,
+textarea:invalid {
+  box-shadow: 0 10px 10px rgba(220, 13, 23, 0.5);
+}
+header {
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+header a {
+  transition: all 0.2s ease-out;
+}
+header a:hover {
+  text-decoration: none;
+  text-shadow: -4px 4px 4px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease-out;
+}
+footer p > span {
+  padding: 20px;
+}
+.jumbotron {
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.8);
+  background-color: none;
+  background: url('/app/images/textures/xv.png') repeat;
+}
+#tabs .nav-tabs li a:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+#tabs .nav-tabs li.active a {
+  background-color: none;
+  background: url('/app/images/textures/crossword.png') repeat;
+}
+#tabs .tab-pane {
+  background-color: none;
+  background: url('/app/images/textures/crossword.png') repeat;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.8);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+#tabs .tab-content {
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+  border-bottom: 1px solid #dddddd;
+}
+.highlight {
+  background: rgba(230, 230, 0, 0.5);
+}
+@media (max-width: 768px) {
+  .tagline {
+    display: none;
+  }
+}
+table.table tbody tr.selected {
+  background-color: #a7c6d8;
+  transition: all 0.2s ease-out;
+}
+table.table tbody tr {
+  transition: all 0.2s ease-out;
+}
+table.table tbody tr:hover:not(.selected) {
+  background-color: #c7e6f8;
+  transition: all 0.2s ease-out;
+}

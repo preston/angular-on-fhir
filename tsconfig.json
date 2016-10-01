@@ -1,47 +1,43 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
         "target": "es5",
-        "noImplicitAny": false,
-        "outDir": "dist",
-        "rootDir": ".",
-        "sourceMap": false,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceMap": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "moduleResolution": "node"
+        "removeComments": false,
+        "noImplicitAny": false
     },
     "exclude": [
         "node_modules"
     ],
     "filesGlob": [
-        "typings/browser.d.ts",
-        "src/**/*.ts"
+        "app/**/*.ts"
     ],
     "atom": {
         "rewriteTsconfig": true
     },
     "files": [
-        "typings/browser.d.ts",
-        "src/app/components/api.component.ts",
-        "src/app/components/client.component.ts",
-        "src/app/components/home.component.ts",
-        "src/app/components/patient.component.ts",
-        "src/app/directives/auto-grow.directive.ts",
-        "src/app/directives/highlight.directive.ts",
-        "src/app/healthcreek.spec.ts",
-        "src/app/healthcreek.ts",
-        "src/app/models/client.model.ts",
-        "src/app/models/patient.model.ts",
-        "src/app/models/user.model.ts",
-        "src/app/pipes/humanizeBytes.pipe.ts",
-        "src/app/services/client.service.ts",
-        "src/app/services/encounter.service.ts",
-        "src/app/services/fhir.service.ts",
-        "src/app/services/healthcreek.service.ts",
-        "src/app/services/patient.service.ts",
-        "src/app/services/search.service.ts",
-        "src/app/services/user.service.ts",
-        "src/main.ts",
-        "src/vendor.ts"
+        "app/app.module.ts",
+        "app/components/api.component.ts",
+        "app/components/app.component.ts",
+        "app/components/client.component.ts",
+        "app/components/home.component.ts",
+        "app/components/patient.component.ts",
+        "app/directives/auto-grow.directive.ts",
+        "app/directives/highlight.directive.ts",
+        "app/main.ts",
+        "app/models/client.model.ts",
+        "app/models/patient.model.ts",
+        "app/models/user.model.ts",
+        "app/pipes/humanizeBytes.pipe.ts",
+        "app/services/client.service.ts",
+        "app/services/encounter.service.ts",
+        "app/services/fhir.service.ts",
+        "app/services/healthcreek.service.ts",
+        "app/services/patient.service.ts",
+        "app/services/search.service.ts",
+        "app/services/user.service.ts"
     ]
 }
