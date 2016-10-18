@@ -21,8 +21,13 @@ export class ConditionsComponent {
     ngOnChanges() {
         if (this.patient) {
             this.conditionService.index(this.patient).subscribe(data => {
-                this.conditions = <Array<Condition>>data.entry.map(r => r['resource']);
-                console.log("Loaded " + this.conditions.length + " conditions.");
+				if(data.entry) {
+                	this.conditions = <Array<Condition>>data.entry.map(r => r['resource']);
+                	console.log("Loaded " + this.conditions.length + " conditions.");
+				} else {
+					this.conditions = new Array<Condition>();
+					console.log("No conditions for patient.");
+				}
             });
         }
     }

@@ -5,16 +5,19 @@ import {Headers, RequestOptions} from '@angular/http';
 @Injectable()
 export class FhirService {
 
-	private root = 'https://fhir-open-api-dstu2.smarthealthit.org';
-	// private root = 'http://alpha-server.healthcreek.org';
+    private base: string;
 
-	getUrl(): string {
-		return this.root;
-	}
+    getUrl(): string {
+        return this.base;
+    }
 
-	options(): RequestOptions {
-		let headers = new Headers({ 'Accept': 'application/json' });
-    	return new RequestOptions({ headers: headers });
-	}
+    setUrl(url: string) {
+        this.base = url;
+    }
+
+    options(): RequestOptions {
+        let headers = new Headers({ 'Accept': 'application/json' });
+        return new RequestOptions({ headers: headers });
+    }
 
 }

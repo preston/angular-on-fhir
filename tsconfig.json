@@ -36,6 +36,7 @@
         "app/models/condition.model.ts",
         "app/models/finding.model.ts",
         "app/models/patient.model.ts",
+        "app/models/server.model.ts",
         "app/models/user.model.ts",
         "app/pipes/humanizeBytes.pipe.ts",
         "app/services/client.service.ts",
@@ -45,6 +46,7 @@
         "app/services/healthcreek.service.ts",
         "app/services/patient.service.ts",
         "app/services/search.service.ts",
+        "app/services/server.service.ts",
         "app/services/user.service.ts"
     ]
 }

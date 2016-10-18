@@ -22,8 +22,8 @@ var ConditionService = (function () {
         console.log("ConditionService created...");
     }
     ConditionService.prototype.index = function (patient) {
-        var url = this.fhirService.getUrl() + this.path + "?subject:Patient/" + patient.id;
-        console.log("ESNUTH");
+        var url = this.fhirService.getUrl() + this.path + "?patient=" + patient.id;
+        // console.log("ESNUTH");
         return this.http.get(url, this.fhirService.options()).map(function (res) { return res.json(); });
     };
     return ConditionService;

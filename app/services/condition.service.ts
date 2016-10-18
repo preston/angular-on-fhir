@@ -12,7 +12,7 @@ import {Patient} from '../models/patient.model';
 export class ConditionService {
 
     private path = '/Condition';
-	
+
     // private conditions;
     // private options: Headers = new Headers;["Accept: application/json";
 
@@ -21,8 +21,8 @@ export class ConditionService {
     }
 
     index(patient: Patient): Observable<any> {
-        var url = this.fhirService.getUrl() + this.path + "?subject:Patient/" + patient.id;
-		console.log("ESNUTH");
+        var url = this.fhirService.getUrl() + this.path + "?patient=" + patient.id;
+		// console.log("ESNUTH");
         return this.http.get(url, this.fhirService.options()).map(res => res.json());
     }
 

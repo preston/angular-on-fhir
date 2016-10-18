@@ -2,9 +2,19 @@
 	<div class="col-sm-3" *ngIf="patients">
 		<h2></h2>
 		<div class="form-group">
+			<label><span class="glyphicon glyphicon-cloud"></span> Provider</label>
+			<select class="form-control" id="server_select" (change)="selectServerForUrl($event.target.value)">
+				<option *ngFor="let s of servers" [value]="s.url" [selected]="server && (s.url == server.url)">{{s.name}}</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label><span class="glyphicon glyphicon-user"></span> Patient</label>
 			<select class="form-control" id="patient_select" (change)="select($event.target.value)">
-		<option *ngFor="let p of patients" [value]="p.id" [selected]="patient && (p.id == patient.id)">{{p.name[0].given[0]}} {{p.name[0].family[0]}}</option>
-	</select>
+				<option *ngFor="let p of patients" [value]="p.id" [selected]="patient && (p.id == patient.id)">
+					<span *ngIf="p.name && p.name[0].given">{{p.name[0].given[0]}}</span>
+					<span *ngIf="p.name && p.name[0].family">{{p.name[0].family[0]}}</span>
+				</option>
+			</select>
 		</div>
 		<div class="form-group" *ngIf="selected">
 			<b>{{genderString(selected)}}</b>, born {{selected.birthDate}}.
@@ -16,7 +26,8 @@
 		<section *ngIf="selected">
 			<h4>ID</h4>
 			<div class="identifier" *ngFor="let id of selected.identifier">
-				<b>{{id['type']['coding'][0]['display']}}</b> <i>({{id['value']}})</i>
+				<b *ngIf="id['type'] && id['type']['coding']">{{id['type']['coding'][0]['display']}}</b>
+				<i>({{id['value']}})</i>
 				<br/>
 				<small>{{id['system']}} {{id['use']}}</small>
 			</div>
@@ -24,7 +35,8 @@
 		<section *ngIf="selected">
 			<h4>Addresses</h4>
 			<address class="address" *ngFor="let a of selected.address">
-			<b>{{a['line'][0]}}</b> <i>({{a['use']}})</i>
+			<b *ngIf="a['line']">{{a['line'][0]}}</b>
+			<i>({{a['use']}})</i>
 			<br/>
 			<small>{{a['city']}}, {{a['country']}}, {{a['postalCode']}}</small>
 		</address>

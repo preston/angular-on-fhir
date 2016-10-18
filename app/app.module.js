@@ -20,6 +20,7 @@ var findings_component_1 = require("./components/findings.component");
 var activities_component_1 = require("./components/activities.component");
 var client_service_1 = require("./services/client.service");
 var encounter_service_1 = require("./services/encounter.service");
+var server_service_1 = require("./services/server.service");
 var fhir_service_1 = require("./services/fhir.service");
 var healthcreek_service_1 = require("./services/healthcreek.service");
 var patient_service_1 = require("./services/patient.service");
@@ -62,6 +63,7 @@ AppModule = __decorate([
         ],
         providers: [
             appRoutingProviders,
+            server_service_1.ServerService,
             client_service_1.ClientService,
             encounter_service_1.EncounterService,
             fhir_service_1.FhirService,

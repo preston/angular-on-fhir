@@ -13,6 +13,7 @@ import {ActivitiesComponent} from './components/activities.component';
 
 import {ClientService} from './services/client.service';
 import {EncounterService} from './services/encounter.service';
+import {ServerService} from './services/server.service';
 import {FhirService} from './services/fhir.service';
 import {HealthCreekService} from './services/healthcreek.service';
 import {PatientService} from './services/patient.service';
@@ -55,6 +56,7 @@ const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
     ],   // components and directives
     providers: [
         appRoutingProviders,
+		ServerService,
         ClientService,
         EncounterService,
 		FhirService,

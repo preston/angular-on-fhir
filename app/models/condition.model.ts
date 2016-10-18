@@ -1,8 +1,8 @@
 export class Condition {
 
-    id: String;
-    onsetDateTime: String;
-    verificationStatus: String;
-    clinicalStatus: String;
+    id: string;
+    onsetDateTime: string;
+    verificationStatus: string;
+    clinicalStatus: string;
 	code: Object;
 }

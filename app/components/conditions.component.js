@@ -22,8 +22,14 @@ var ConditionsComponent = (function () {
         var _this = this;
         if (this.patient) {
             this.conditionService.index(this.patient).subscribe(function (data) {
-                _this.conditions = data.entry.map(function (r) { return r['resource']; });
-                console.log("Loaded " + _this.conditions.length + " conditions.");
+                if (data.entry) {
+                    _this.conditions = data.entry.map(function (r) { return r['resource']; });
+                    console.log("Loaded " + _this.conditions.length + " conditions.");
+                }
+                else {
+                    _this.conditions = new Array();
+                    console.log("No conditions for patient.");
+                }
             });
         }
     };

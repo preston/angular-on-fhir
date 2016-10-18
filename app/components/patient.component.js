@@ -9,11 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var fhir_service_1 = require("../services/fhir.service");
+var server_service_1 = require("../services/server.service");
 var patient_service_1 = require("../services/patient.service");
 var PatientComponent = (function () {
-    function PatientComponent(patientService) {
-        var _this = this;
+    function PatientComponent(fhirService, patientService) {
+        this.fhirService = fhirService;
         this.patientService = patientService;
+        this.servers = server_service_1.ServerService.servers;
+        this.selectServer(this.servers[0]);
+        this.loadPatients();
+    }
+    PatientComponent.prototype.loadPatients = function () {
+        var _this = this;
         this.patientService.index().subscribe(function (data) {
             _this.patients = data.entry.map(function (r) { return r['resource']; });
             console.log("Loaded " + _this.total() + " patients.");
@@ -21,7 +29,7 @@ var PatientComponent = (function () {
                 _this.select(_this.patients[0].id);
             }
         });
-    }
+    };
     PatientComponent.prototype.total = function () {
         var t = 0;
         if (this.patients) {
@@ -36,6 +44,26 @@ var PatientComponent = (function () {
             console.log("Fetching: " + d);
             _this.selected = d; //.entry['resource'];
         });
+    };
+    PatientComponent.prototype.selectServer = function (server) {
+        console.log("Setting server to: " + server.url);
+        this.server = server;
+        this.fhirService.setUrl(server.url);
+        this.loadPatients();
+    };
+    PatientComponent.prototype.selectServerForUrl = function (url) {
+        this.selectServer(this.serverFor(url));
+    };
+    PatientComponent.prototype.serverFor = function (url) {
+        var obj = null;
+        for (var _i = 0, _a = this.servers; _i < _a.length; _i++) {
+            var server = _a[_i];
+            if (server.url == url) {
+                obj = server;
+                break;
+            }
+        }
+        return obj;
     };
     PatientComponent.prototype.genderString = function (patient) {
         var s = 'Unknown';
@@ -56,7 +84,7 @@ PatientComponent = __decorate([
         selector: 'patients',
         templateUrl: 'app/components/patient.html'
     }),
-    __metadata("design:paramtypes", [patient_service_1.PatientService])
+    __metadata("design:paramtypes", [fhir_service_1.FhirService, patient_service_1.PatientService])
 ], PatientComponent);
 exports.PatientComponent = PatientComponent;
 //# sourceMappingURL=patient.component.js.map
