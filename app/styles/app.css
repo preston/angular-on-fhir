@@ -1,6 +1,6 @@
 body {
   background-color: none;
-  background: url('/app/images/textures/tileable_wood_texture.png') repeat;
+  background: url('/app/images/textures/wild_oliva.png') repeat;
 }
 input:invalid,
 textarea:invalid {
@@ -11,21 +11,31 @@ header {
 }
 header a {
   transition: all 0.2s ease-out;
+  text-decoration: none;
 }
-header a:hover {
+/*header a:hover,
+header a:active,*/
+header a:default
+{
   text-decoration: none;
   text-shadow: -4px 4px 4px rgba(0, 0, 0, 0.4);
   transition: all 0.2s ease-out;
 }
+
+/*header a:active {
+  text-decoration: none;}*/
 footer p > span {
   padding: 20px;
 }
 .jumbotron {
-  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.8);
+	/*background: none;*/
+}
+.main {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
   background-color: none;
   background: url('/app/images/textures/xv.png') repeat;
 }
-#tabs .nav-tabs li a:hover {
+/*#tabs .nav-tabs li a:hover {
   background-color: rgba(0, 0, 0, 0.08);
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-left: 1px solid rgba(0, 0, 0, 0.1);
@@ -46,7 +56,7 @@ footer p > span {
   border-left: 1px solid #dddddd;
   border-right: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
-}
+}*/
 .highlight {
   background: rgba(230, 230, 0, 0.5);
 }
@@ -65,4 +75,8 @@ table.table tbody tr {
 table.table tbody tr:hover:not(.selected) {
   background-color: #c7e6f8;
   transition: all 0.2s ease-out;
+}
+h4 {
+	border-bottom: 1px solid #ccc;
+	/*text-decoration: underline;*/
 }

@@ -7,6 +7,10 @@ import {ClientComponent} from './components/client.component';
 import {HomeComponent} from './components/home.component';
 import {PatientComponent} from './components/patient.component';
 
+import {ConditionsComponent} from './components/conditions.component';
+import {FindingsComponent} from './components/findings.component';
+import {ActivitiesComponent} from './components/activities.component';
+
 import {ClientService} from './services/client.service';
 import {EncounterService} from './services/encounter.service';
 import {FhirService} from './services/fhir.service';
@@ -14,6 +18,7 @@ import {HealthCreekService} from './services/healthcreek.service';
 import {PatientService} from './services/patient.service';
 import {SearchService} from './services/search.service';
 import {UserService} from './services/user.service';
+import {ConditionService} from './services/condition.service';
 
 
 enableProdMode();
@@ -43,7 +48,10 @@ const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
         AppComponent,
         ClientComponent,
         HomeComponent,
-        PatientComponent
+        PatientComponent,
+        FindingsComponent,
+        ConditionsComponent,
+        ActivitiesComponent
     ],   // components and directives
     providers: [
         appRoutingProviders,
@@ -53,6 +61,7 @@ const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
 		HealthCreekService,
         PatientService,
         SearchService,
+        ConditionService,
         UserService
     ],                    // services
     bootstrap: [AppComponent]     // root component

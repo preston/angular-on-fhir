@@ -1,0 +1,32 @@
+<section>
+	<h2>Conditions</h2>
+	<!-- <div class="checkbox-inline">
+		<label><input type="checkbox" [(ngModel)]="active">Active?</label>
+	</div>
+	<div class="checkbox-inline">
+		<label><input type="checkbox" [(ngModel)]="confirmed">Confirmed?</label>
+	</div> -->
+	<table class="table table-condensed table-striped">
+		<thead>
+			<tr>
+				<th>
+					Onset
+				</th>
+				<th>
+					Description
+				</th>
+				<th>
+					Status
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let c of conditions">
+				<!-- <td>{{c.id}}</td> -->
+				<td>{{c.onsetDateTime}}</td>
+				<td>{{c.code['text']}}</td>
+				<td>{{c.clinicalStatus}}</td>
+			</tr>
+		</tbody>
+	</table>
+</section>

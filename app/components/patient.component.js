@@ -8,24 +8,55 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require('@angular/core');
-var patient_service_1 = require('../services/patient.service');
+var core_1 = require("@angular/core");
+var patient_service_1 = require("../services/patient.service");
 var PatientComponent = (function () {
     function PatientComponent(patientService) {
         var _this = this;
         this.patientService = patientService;
-        this.patientService.index().subscribe(function (d) {
-            _this.patients = d.entry;
+        this.patientService.index().subscribe(function (data) {
+            _this.patients = data.entry.map(function (r) { return r['resource']; });
+            console.log("Loaded " + _this.total() + " patients.");
+            if (_this.patients.length > 0) {
+                _this.select(_this.patients[0].id);
+            }
         });
     }
-    PatientComponent = __decorate([
-        core_1.Component({
-            selector: 'patients',
-            templateUrl: 'app/components/patient.html'
-        }), 
-        __metadata('design:paramtypes', [patient_service_1.PatientService])
-    ], PatientComponent);
+    PatientComponent.prototype.total = function () {
+        var t = 0;
+        if (this.patients) {
+            t = this.patients.length;
+        }
+        return t;
+    };
+    PatientComponent.prototype.select = function (id) {
+        var _this = this;
+        console.log("Selected patient: " + id);
+        this.patientService.get(id).subscribe(function (d) {
+            console.log("Fetching: " + d);
+            _this.selected = d; //.entry['resource'];
+        });
+    };
+    PatientComponent.prototype.genderString = function (patient) {
+        var s = 'Unknown';
+        switch (patient.gender) {
+            case 'female':
+                s = 'Female';
+                break;
+            case 'male':
+                s = 'Male';
+                break;
+        }
+        return s;
+    };
     return PatientComponent;
 }());
+PatientComponent = __decorate([
+    core_1.Component({
+        selector: 'patients',
+        templateUrl: 'app/components/patient.html'
+    }),
+    __metadata("design:paramtypes", [patient_service_1.PatientService])
+], PatientComponent);
 exports.PatientComponent = PatientComponent;
 //# sourceMappingURL=patient.component.js.map

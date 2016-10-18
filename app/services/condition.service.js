@@ -12,29 +12,26 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
 var fhir_service_1 = require("./fhir.service");
-var PatientService = (function () {
+var ConditionService = (function () {
+    // private conditions;
     // private options: Headers = new Headers;["Accept: application/json";
-    function PatientService(fhirService, http) {
+    function ConditionService(fhirService, http) {
         this.fhirService = fhirService;
         this.http = http;
-        this.path = '/Patient';
-        console.log("PatientService created...");
+        this.path = '/Condition';
+        console.log("ConditionService created...");
     }
-    PatientService.prototype.index = function () {
-        var url = this.fhirService.getUrl() + this.path;
-        // this.http.get
+    ConditionService.prototype.index = function (patient) {
+        var url = this.fhirService.getUrl() + this.path + "?subject:Patient/" + patient.id;
+        console.log("ESNUTH");
         return this.http.get(url, this.fhirService.options()).map(function (res) { return res.json(); });
     };
-    PatientService.prototype.get = function (id) {
-        var url = this.fhirService.getUrl() + this.path + '/' + id;
-        return this.http.get(url, this.fhirService.options()).map(function (res) { return res.json(); });
-    };
-    return PatientService;
+    return ConditionService;
 }());
-PatientService = __decorate([
+ConditionService = __decorate([
     core_1.Injectable(),
     core_1.Component({}),
     __metadata("design:paramtypes", [fhir_service_1.FhirService, http_1.Http])
-], PatientService);
-exports.PatientService = PatientService;
-//# sourceMappingURL=patient.service.js.map
+], ConditionService);
+exports.ConditionService = ConditionService;
+//# sourceMappingURL=condition.service.js.map

@@ -1,39 +1,41 @@
 {
-    "name": "healthcreek-ui",
-    "version": "0.0.0",
-    "description": "Web-based user interface for HealthCreek.",
-    "license": "MIT",
-    "repository": "git@github.com:preston/healthcreek-ui.git",
-    "scripts": {
-        "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
-        "lite": "lite-server",
-        "postinstall": "typings install",
-        "tsc": "tsc",
-        "tsc:w": "tsc -w",
-        "typings": "typings"
-    },
-    "author": "Bibler",
-    "dependencies": {
-        "@angular/common": "~2.0.1",
-        "@angular/compiler": "~2.0.1",
-        "@angular/core": "~2.0.1",
-        "@angular/forms": "~2.0.1",
-        "@angular/http": "~2.0.1",
-        "@angular/platform-browser": "~2.0.1",
-        "@angular/platform-browser-dynamic": "~2.0.1",
-        "@angular/router": "~3.0.1",
-        "@angular/upgrade": "~2.0.1",
-        "angular-in-memory-web-api": "~0.1.1",
-        "core-js": "^2.4.1",
-        "reflect-metadata": "^0.1.8",
-        "rxjs": "5.0.0-beta.12",
-        "systemjs": "0.19.39",
-        "zone.js": "^0.6.25"
-    },
-    "devDependencies": {
-        "concurrently": "^3.0.0",
-        "lite-server": "^2.2.2",
-        "typescript": "^2.0.3",
-        "typings": "^1.4.0"
-    }
+  "name": "healthcreek-ui",
+  "version": "0.0.0",
+  "description": "Web-based user interface for HealthCreek.",
+  "license": "MIT",
+  "repository": "git@github.com:preston/healthcreek-ui.git",
+  "scripts": {
+    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "lite": "lite-server",
+    "postinstall": "typings install",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "typings": "typings"
+  },
+  "author": "Bibler",
+  "dependencies": {
+    "@angular/common": "~2.1.0",
+    "@angular/compiler": "~2.1.0",
+    "@angular/core": "~2.1.0",
+    "@angular/forms": "~2.1.0",
+    "@angular/http": "~2.1.0",
+    "@angular/platform-browser": "~2.1.0",
+    "@angular/platform-browser-dynamic": "~2.1.0",
+    "@angular/router": "~3.1.0",
+    "@angular/upgrade": "~2.1.0",
+
+    "angular-in-memory-web-api": "~0.1.7",
+    "angular2-data-table": "latest",
+    "core-js": "^2.4.1",
+    "reflect-metadata": "^0.1.8",
+    "rxjs": "5.0.0-beta.12",
+    "systemjs": "0.19.39",
+    "zone.js": "^0.6.25"
+  },
+  "devDependencies": {
+    "concurrently": "^3.0.0",
+    "lite-server": "^2.2.2",
+    "typescript": "^2.0.3",
+    "typings": "^1.4.0"
+  }
 }
