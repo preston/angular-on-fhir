@@ -1,5 +1,5 @@
 <div>
-	<aside class="col-sm-3" *ngIf="patients">
+	<aside id="sidebar" class="col-sm-3" *ngIf="patients">
 		<h2></h2>
 		<form>
 			<div class="form-group">
@@ -25,48 +25,47 @@
 		</form>
 
 
-		<section>
 
-			<!-- Nav tabs -->
-			<ul class="nav nav-tabs" role="tablist">
-				<li role="presentation" class="active"><a href="#conditions" aria-controls="conditions" role="tab" data-toggle="tab">
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs" role="tablist">
+			<li role="presentation" class="active">
+				<a href="#conditions" aria-controls="conditions" role="tab" data-toggle="tab">
 					<span class="glyphicon glyphicon-alert"></span> Conditions
-				</a></li>
-				<li role="presentation"><a href="#identity" aria-controls="identity" role="tab" data-toggle="tab">
+				</a>
+			</li>
+			<li role="presentation">
+				<a href="#identity" aria-controls="identity" role="tab" data-toggle="tab">
 					<span class="glyphicon glyphicon-credit-card"></span> Identity
-				</a></li>
-			</ul>
+				</a>
+			</li>
+		</ul>
 
-			<!-- Tab panes -->
-			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane active" id="conditions">
-					<conditions [patient]="selected"></conditions>
-				</div>
-				<div role="tabpanel" class="tab-pane" id="identity">
-					<section *ngIf="selected">
-						<h4>ID</h4>
-						<div class="identifier" *ngFor="let id of selected.identifier">
-							<b *ngIf="id['type'] && id['type']['coding']">{{id['type']['coding'][0]['display']}}</b>
-							<i>({{id['value']}})</i>
-							<br/>
-							<small>{{id['system']}} {{id['use']}}</small>
-						</div>
-					</section>
-					<section *ngIf="selected">
-						<h4>Addresses</h4>
-						<address class="address" *ngFor="let a of selected.address">
+		<!-- Tab panes -->
+		<div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="conditions">
+				<conditions [patient]="selected"></conditions>
+			</div>
+			<div role="tabpanel" class="tab-pane" id="identity">
+				<section *ngIf="selected">
+					<h4>ID</h4>
+					<div class="identifier" *ngFor="let id of selected.identifier">
+						<b *ngIf="id['type'] && id['type']['coding']">{{id['type']['coding'][0]['display']}}</b>
+						<i>({{id['value']}})</i>
+						<br/>
+						<small>{{id['system']}} {{id['use']}}</small>
+					</div>
+				</section>
+				<section *ngIf="selected">
+					<h4>Addresses</h4>
+					<address class="address" *ngFor="let a of selected.address">
 								<b *ngIf="a['line']">{{a['line'][0]}}</b>
 								<i>({{a['use']}})</i>
 								<br/>
 								<small>{{a['city']}}, {{a['country']}}, {{a['postalCode']}}</small>
 							</address>
-					</section>
-				</div>
+				</section>
 			</div>
-
-		</section>
-
-
+		</div>
 	</aside>
 
 	<observations class="col-sm-6" [patient]="selected"></observations>
