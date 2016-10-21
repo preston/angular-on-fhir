@@ -39,6 +39,7 @@ const appRoutes: Routes = [
 const appRoutingProviders: any[] = [];
 const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
 
+
 @NgModule({
     imports: [
         BrowserModule,

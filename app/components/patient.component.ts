@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, Compiler} from '@angular/core';
+
 import {FhirService} from '../services/fhir.service';
 import {ServerService} from '../services/server.service';
 import {PatientService} from '../services/patient.service';
@@ -18,10 +19,12 @@ export class PatientComponent {
     servers: Server[] = ServerService.servers;
 
 
-    constructor(private fhirService: FhirService, private patientService: PatientService) {
+    constructor(private fhirService: FhirService, private patientService: PatientService, private compiler: Compiler) {
+		this.compiler.clearCache();
         this.selectServer(this.servers[0]);
         this.loadPatients();
     }
+
     loadPatients() {
         this.patientService.index().subscribe(data => {
             this.patients = <Array<Patient>>data.entry.map(r => r['resource']);

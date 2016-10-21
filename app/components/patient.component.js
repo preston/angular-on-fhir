@@ -13,10 +13,12 @@ var fhir_service_1 = require("../services/fhir.service");
 var server_service_1 = require("../services/server.service");
 var patient_service_1 = require("../services/patient.service");
 var PatientComponent = (function () {
-    function PatientComponent(fhirService, patientService) {
+    function PatientComponent(fhirService, patientService, compiler) {
         this.fhirService = fhirService;
         this.patientService = patientService;
+        this.compiler = compiler;
         this.servers = server_service_1.ServerService.servers;
+        this.compiler.clearCache();
         this.selectServer(this.servers[0]);
         this.loadPatients();
     }
@@ -84,7 +86,7 @@ PatientComponent = __decorate([
         selector: 'patients',
         templateUrl: 'app/components/patient.html'
     }),
-    __metadata("design:paramtypes", [fhir_service_1.FhirService, patient_service_1.PatientService])
+    __metadata("design:paramtypes", [fhir_service_1.FhirService, patient_service_1.PatientService, core_1.Compiler])
 ], PatientComponent);
 exports.PatientComponent = PatientComponent;
 //# sourceMappingURL=patient.component.js.map
