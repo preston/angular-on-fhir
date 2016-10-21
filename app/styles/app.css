@@ -26,7 +26,7 @@
         padding: 20px;
     }
 
-    aside#sidebar,
+    aside#sidebar > section,
 	observations>section,
 	activities>section
  {
