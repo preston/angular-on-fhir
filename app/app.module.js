@@ -16,7 +16,7 @@ var client_component_1 = require("./components/client.component");
 var home_component_1 = require("./components/home.component");
 var patient_component_1 = require("./components/patient.component");
 var conditions_component_1 = require("./components/conditions.component");
-var findings_component_1 = require("./components/findings.component");
+var observations_component_1 = require("./components/observations.component");
 var activities_component_1 = require("./components/activities.component");
 var client_service_1 = require("./services/client.service");
 var encounter_service_1 = require("./services/encounter.service");
@@ -27,6 +27,8 @@ var patient_service_1 = require("./services/patient.service");
 var search_service_1 = require("./services/search.service");
 var user_service_1 = require("./services/user.service");
 var condition_service_1 = require("./services/condition.service");
+var observation_service_1 = require("./services/observation.service");
+var angular2_moment_1 = require("angular2-moment");
 core_1.enableProdMode();
 var core_2 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
@@ -49,7 +51,8 @@ AppModule = __decorate([
             platform_browser_1.BrowserModule,
             routing,
             forms_1.FormsModule,
-            http_1.HttpModule
+            http_1.HttpModule,
+            angular2_moment_1.MomentModule
         ],
         declarations: [
             api_component_1.ApiComponent,
@@ -57,7 +60,7 @@ AppModule = __decorate([
             client_component_1.ClientComponent,
             home_component_1.HomeComponent,
             patient_component_1.PatientComponent,
-            findings_component_1.FindingsComponent,
+            observations_component_1.ObservationsComponent,
             conditions_component_1.ConditionsComponent,
             activities_component_1.ActivitiesComponent
         ],
@@ -70,6 +73,7 @@ AppModule = __decorate([
             healthcreek_service_1.HealthCreekService,
             patient_service_1.PatientService,
             search_service_1.SearchService,
+            observation_service_1.ObservationService,
             condition_service_1.ConditionService,
             user_service_1.UserService
         ],

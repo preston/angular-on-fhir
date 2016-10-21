@@ -12,24 +12,24 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
 var fhir_service_1 = require("./fhir.service");
-var ConditionService = (function () {
-    function ConditionService(fhirService, http) {
+var ObservationService = (function () {
+    function ObservationService(fhirService, http) {
         this.fhirService = fhirService;
         this.http = http;
-        this.path = '/Condition';
-        console.log("ConditionService created...");
+        this.path = '/Observation';
+        console.log("ObservationService created...");
     }
-    ConditionService.prototype.index = function (patient) {
+    ObservationService.prototype.index = function (patient) {
         var url = this.fhirService.getUrl() + this.path + "?patient=" + patient.id;
         // console.log("ESNUTH");
         return this.http.get(url, this.fhirService.options()).map(function (res) { return res.json(); });
     };
-    return ConditionService;
+    return ObservationService;
 }());
-ConditionService = __decorate([
+ObservationService = __decorate([
     core_1.Injectable(),
     core_1.Component({}),
     __metadata("design:paramtypes", [fhir_service_1.FhirService, http_1.Http])
-], ConditionService);
-exports.ConditionService = ConditionService;
-//# sourceMappingURL=condition.service.js.map
+], ObservationService);
+exports.ObservationService = ObservationService;
+//# sourceMappingURL=observation.service.js.map

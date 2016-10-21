@@ -9,12 +9,12 @@ import {Patient} from '../models/patient.model';
 @Injectable()
 @Component({
 })
-export class ConditionService {
+export class ObservationService {
 
-    private path = '/Condition';
+    private path = '/Observation';
 
     constructor(private fhirService: FhirService, private http: Http) {
-        console.log("ConditionService created...");
+        console.log("ObservationService created...");
     }
 
     index(patient: Patient): Observable<any> {

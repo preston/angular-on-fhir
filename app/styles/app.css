@@ -22,6 +22,10 @@ header a:default
   transition: all 0.2s ease-out;
 }
 
+aside {
+	background: rgba(0,0,0,.05);
+	height: 100%;
+}
 /*header a:active {
   text-decoration: none;}*/
 footer p > span {

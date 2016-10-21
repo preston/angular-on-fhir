@@ -8,7 +8,7 @@ import {HomeComponent} from './components/home.component';
 import {PatientComponent} from './components/patient.component';
 
 import {ConditionsComponent} from './components/conditions.component';
-import {FindingsComponent} from './components/findings.component';
+import {ObservationsComponent} from './components/observations.component';
 import {ActivitiesComponent} from './components/activities.component';
 
 import {ClientService} from './services/client.service';
@@ -20,7 +20,9 @@ import {PatientService} from './services/patient.service';
 import {SearchService} from './services/search.service';
 import {UserService} from './services/user.service';
 import {ConditionService} from './services/condition.service';
+import {ObservationService} from './services/observation.service';
 
+import {MomentModule} from 'angular2-moment';
 
 enableProdMode();
 
@@ -42,7 +44,8 @@ const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
         BrowserModule,
         routing,
         FormsModule,
-        HttpModule
+        HttpModule,
+		MomentModule
     ],       // module dependencies
     declarations: [
         ApiComponent,
@@ -50,7 +53,7 @@ const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
         ClientComponent,
         HomeComponent,
         PatientComponent,
-        FindingsComponent,
+        ObservationsComponent,
         ConditionsComponent,
         ActivitiesComponent
     ],   // components and directives
@@ -63,6 +66,7 @@ const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
 		HealthCreekService,
         PatientService,
         SearchService,
+        ObservationService,
         ConditionService,
         UserService
     ],                    // services

@@ -11,7 +11,7 @@ import {Patient} from '../models/patient.model';
 export class ConditionsComponent {
 
     selected: Condition;
-    conditions: Array<Condition>;
+    conditions: Array<Condition> = [];
     @Input() patient: Patient;
 
     constructor(private fhirService: FhirService, private conditionService: ConditionService) {

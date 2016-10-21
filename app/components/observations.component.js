@@ -10,42 +10,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var fhir_service_1 = require("../services/fhir.service");
-var condition_service_1 = require("../services/condition.service");
+var observation_service_1 = require("../services/observation.service");
 var patient_model_1 = require("../models/patient.model");
-var ConditionsComponent = (function () {
-    function ConditionsComponent(fhirService, conditionService) {
+var ObservationsComponent = (function () {
+    function ObservationsComponent(fhirService, observationService) {
         this.fhirService = fhirService;
-        this.conditionService = conditionService;
-        this.conditions = [];
-        console.log("ConditionsService created...");
+        this.observationService = observationService;
+        this.observations = [];
+        console.log("ObservationsComponent created...");
     }
-    ConditionsComponent.prototype.ngOnChanges = function () {
+    ObservationsComponent.prototype.ngOnChanges = function () {
         var _this = this;
         if (this.patient) {
-            this.conditionService.index(this.patient).subscribe(function (data) {
+            this.observationService.index(this.patient).subscribe(function (data) {
                 if (data.entry) {
-                    _this.conditions = data.entry.map(function (r) { return r['resource']; });
-                    console.log("Loaded " + _this.conditions.length + " conditions.");
+                    _this.observations = data.entry.map(function (r) { return r['resource']; });
+                    console.log("Loaded " + _this.observations.length + " observations.");
                 }
                 else {
-                    _this.conditions = new Array();
-                    console.log("No conditions for patient.");
+                    _this.observations = new Array();
+                    console.log("No observations for patient.");
                 }
             });
         }
     };
-    return ConditionsComponent;
+    return ObservationsComponent;
 }());
 __decorate([
     core_1.Input(),
     __metadata("design:type", patient_model_1.Patient)
-], ConditionsComponent.prototype, "patient", void 0);
-ConditionsComponent = __decorate([
+], ObservationsComponent.prototype, "patient", void 0);
+ObservationsComponent = __decorate([
     core_1.Component({
-        selector: 'conditions',
-        templateUrl: 'app/components/conditions.html'
+        selector: 'observations',
+        templateUrl: 'app/components/observations.html'
     }),
-    __metadata("design:paramtypes", [fhir_service_1.FhirService, condition_service_1.ConditionService])
-], ConditionsComponent);
-exports.ConditionsComponent = ConditionsComponent;
-//# sourceMappingURL=conditions.component.js.map
+    __metadata("design:paramtypes", [fhir_service_1.FhirService, observation_service_1.ObservationService])
+], ObservationsComponent);
+exports.ObservationsComponent = ObservationsComponent;
+//# sourceMappingURL=observations.component.js.map
