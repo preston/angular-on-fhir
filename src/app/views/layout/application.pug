@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        //- For Angular's routing.
+        base(href="/")
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width initial-scale=1.0")
+        title PatientViewer
+        meta(content='Templace SMART-on-FHIR UI application.', name='description')
+        meta(name="author" content="Preston Lee")
+
+        include icons
+
+        link(rel='stylesheet' href='/css/extra.css')
+        link(rel='stylesheet' href='/css/theme.css')
+        link(rel='stylesheet' href='/css/main.css')
+        link(rel='stylesheet' href='/css/ribbons.css')
+
+        script(src="vendor.bundle.js")
+        script(src="main.bundle.js")
+
+    body(class="#{yield(:body_class)}")
+        .corner-ribbon.bottom-right.sticky.green.shadow Early Alpha
+        block content
+        include footer

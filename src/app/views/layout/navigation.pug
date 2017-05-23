@@ -1,0 +1,25 @@
+nav.navbar.navbar-default.navbar-fixed-top
+	.container-fluid
+		.navbar-header
+			button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar-collapse" aria-expanded="false")
+				span.sr-only Toggle navigation
+				span.icon-bar 
+				span.icon-bar 
+				span.icon-bar 
+			//- a#home_link.navbar-brand(routerLink='/', routerLinkActive='active')
+			//- 	span.glyphicon.glyphicon-home
+		.collapse.navbar-collapse#main-navbar-collapse
+			ul.nav.navbar-nav
+			ul.nav.navbar-nav.navbar-right
+				li
+					a#home_link(routerLink='/', routerLinkActive='active')
+						span.glyphicon.glyphicon-home
+						|  Home
+				li
+					a#account_link(routerLink='/api', routerLinkActive='active')
+						span.glyphicon.glyphicon-transfer
+						|  API
+				li
+					a#sign_out_link(href="todo")
+						span.glyphicon.glyphicon-log-out
+						|  Sign Out

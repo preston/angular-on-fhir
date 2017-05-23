@@ -1,8 +1,19 @@
-# Files
+# OS X crap
 .DS_Store
 
-#Exclude npm modules
-node_modules
+# TypeScript cache
+.tscache
 
-#Exclude logs
-npm-debug.log
+# Generated files
+build
+*.css
+*.map
+*.zip
+*.tar.gz
+
+#Exclude bower components and fonts
+src/bower_components
+
+# Locally-installed dependencies
+node_modules
+bower_components

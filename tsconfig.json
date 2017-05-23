@@ -1,53 +1,24 @@
 {
     "compilerOptions": {
-        "target": "es5",
+        "target": "es6",
         "module": "commonjs",
         "moduleResolution": "node",
         "sourceMap": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "removeComments": false,
-        "noImplicitAny": false
+        "noImplicitAny": false,
+        "outDir": "build",
+        "rootDir": "src"
     },
+    "compileOnSave": false,
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "bower_components",
+        "typings/globals",
+        "typings/index.d.ts"
     ],
     "filesGlob": [
-        "app/**/*.ts"
-    ],
-    "atom": {
-        "rewriteTsconfig": true
-    },
-    "files": [
-        "app/app.module.ts",
-        "app/components/activities.component.ts",
-        "app/components/api.component.ts",
-        "app/components/app.component.ts",
-        "app/components/client.component.ts",
-        "app/components/conditions.component.ts",
-        "app/components/home.component.ts",
-        "app/components/observations.component.ts",
-        "app/components/patient.component.ts",
-        "app/directives/auto-grow.directive.ts",
-        "app/directives/highlight.directive.ts",
-        "app/main.ts",
-        "app/models/activity.model.ts",
-        "app/models/client.model.ts",
-        "app/models/condition.model.ts",
-        "app/models/observation.model.ts",
-        "app/models/patient.model.ts",
-        "app/models/server.model.ts",
-        "app/models/user.model.ts",
-        "app/pipes/humanizeBytes.pipe.ts",
-        "app/services/client.service.ts",
-        "app/services/condition.service.ts",
-        "app/services/encounter.service.ts",
-        "app/services/fhir.service.ts",
-        "app/services/healthcreek.service.ts",
-        "app/services/observation.service.ts",
-        "app/services/patient.service.ts",
-        "app/services/search.service.ts",
-        "app/services/server.service.ts",
-        "app/services/user.service.ts"
+        "src/**/*.ts"
     ]
 }
