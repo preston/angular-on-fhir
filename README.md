@@ -1,28 +1,41 @@
 # HealthCreek
 
-Front-end project for context-driven clinical transactions.
+Angular 4 base project for SMART and other FHIR-based UIs.
 
-# Frameworks/Libraries
+## Developer Quick Start
 
-This most important technologies used in this project are:
+This is an [AngularJS 2](https://angular.io) project using `grunt` as the build system, [pug](https://pugjs.org/api/getting-started.html) for HTML templates, [SASS](http://sass-lang.com) for CSS and [Bootstrap](http://getbootstrap.com/) for layout. `npm` is the package manager. Assuming you already have node installed via `brew install node` or similar:
 
-* Angular2: https://angular.io/
-* Bootstrap: http://getbootstrap.com/
-* jQuery: https://jquery.com/
-* NPM: Node.js' package manager: https://www.npmjs.com/
+	npm install -g grunt typings
+	npm install # to install project development dependencies
+	typings install # to install TypeScript declarations
 
-## Getting Started
+To run in development mode, just:
 
-1. Clone this repository!
-1. Install node.js using your local package manager (brew, port, apt etc) or manually via https://nodejs.org/en/download/
-1. At project root, install NPM and Bower packages:
+	grunt # to serve the project and automatically recompile on file changes
 
-    $ npm install
-	$ npm install -g serve
+Visit [http://localhost:9000](http://localhost:9000) and do your thang. :)
+
+## Building for Production
+
+First, build:
+
+	grunt clean # to remove all existing compiled files
+	grunt build # to build your local copy with any local changes
+
+Then, assuming you've already familiar with [Docker](https://www.docker.com) awesomeness and have it installed, plop the build into a wicked-fast [nginx](http://nginx.org) web server container using the including Dockerfile with:
+
+	docker build -t p3000/angular-on-fhir:latest . # though you probably want your own repo and tag strings :)
+
+## Production Deployment
+
+Extremely easy in your existing Dockerized hosting environment. Just:
+
+	docker run -d -p 9000:80 --restart unless-stopped p3000/angular-on-fhir:latest # or any official tag
+
+And you're done. No environment variables or further configuration are needed. Jedi's may use your existing Kubernetes, Open Shift etc installations as you see fit. :)
 
 
-## Running the project
+# License
 
-To run the project and access it at http://127.0.0.1:3000 :
-
-    $ serve
+[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0)

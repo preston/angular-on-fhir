@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Angular 4 base project for SMART and other FHIR-based UIs.",
   "license": "Apache-2.0",
-  "repository": "git@github.com:preston/healthcreek-ui.git",
+  "repository": "git@github.com:preston/angular-on-fhir.git",
   "scripts": {
     "start": "grunt",
     "postinstall": "typings install"
