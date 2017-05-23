@@ -1,8 +1,8 @@
 {
   "name": "angular-4-base",
   "version": "0.0.0",
-  "description": "Angular 4 base project for FHIR-based UIs.",
-  "license": "MIT",
+  "description": "Angular 4 base project for SMART and other FHIR-based UIs.",
+  "license": "Apache-2.0",
   "repository": "git@github.com:preston/healthcreek-ui.git",
   "scripts": {
     "start": "grunt",
