@@ -1,4 +1,4 @@
-# HealthCreek
+# Angular on FHIR
 
 Angular 4 base project for SMART and other FHIR-based UIs.
 
