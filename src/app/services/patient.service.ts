@@ -10,7 +10,7 @@ import {FhirService} from './fhir.service';
 })
 export class PatientService {
 
-    private path = '/Patient';
+    public path = '/Patient';
     private patients;
     // private options: Headers = new Headers;["Accept: application/json";
 

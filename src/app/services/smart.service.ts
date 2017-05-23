@@ -31,7 +31,8 @@ export class SmartService {
 
         this.fhirService.setUrl(this.fhirBaseUrl);
         this.patientService.path = '/metadata';
-        this.patientService.index(false).subscribe(data => {
+		// this.patientService.index(false).subscribe(data => {
+		this.patientService.index().subscribe(data => {
             this.authorizeUrl = data.rest[0].security.extension[0].extension[0].valueUri;
             this.tokenUrl = data.rest[0].security.extension[0].extension[1].valueUri;
             this.cookieService.put('tokenUrl', this.tokenUrl);

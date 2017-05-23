@@ -1,5 +1,5 @@
 section(*ngIf='patient')
-  h2.pull-right
+  h2
     // <span class="glyphicon glyphicon-eye-open"></span>
     | Observations
   p.text-default(*ngIf='observations.length == 0')
@@ -14,13 +14,13 @@ section(*ngIf='patient')
         th Status
     tbody
       tr(*ngFor='let o of observations')
-        td {{o.effectiveDateTime | amTimeAgo}}
+        td {{o?.effectiveDateTime | amTimeAgo}}
         td
-          span {{o.category['text']}}
+          span {{o?.category?.text}}
         td
-          span {{o.code['text']}}
+          span {{o?.code?.text}}
         td
-          span(*ngIf='o.valueQuantity') {{o.valueQuantity['value']}} {{o.valueQuantity['unit']}}
-          span(*ngIf='o.valueCodeableConcept') {{o.valueCodeableConcept['text']}}
+          span {{o.valueQuantity?.value}} {{o.valueQuantity?.unit}}
+          span {{o.valueCodeableConcept?.text}}
         td
           | {{o.status}}

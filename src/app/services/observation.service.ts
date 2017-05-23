@@ -18,7 +18,7 @@ export class ObservationService {
     }
 
     index(patient: Patient): Observable<any> {
-        var url = this.fhirService.getUrl() + this.path + "?patient=" + patient.id;
+        var url = this.fhirService.getUrl() + this.path + "?subject=" + patient.id;
 		// console.log("ESNUTH");
         return this.http.get(url, this.fhirService.options()).map(res => res.json());
     }
