@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1.0">
+    <title>PatientViewer</title>
+    <meta content="Template SMART-on-FHIR UI application." name="description">
+    <meta name="author" content="Preston Lee">
+
+    <!-- <link rel="stylesheet" href="/css/extra.css">
+    <link rel="stylesheet" href="/css/theme.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/ribbons.css">
+    <script src="vendor.bundle.js"></script>
+    <script src="main.bundle.js"></script> -->
+
+    <!-- Load environment variables -->
+    <script src="assets/runtime-configuration.js"></script>
+</head>
+
+<body class="#{yield(:body_class)}">
+    <div class="corner-ribbon bottom-right sticky green shadow">Early Alpha</div>
+    <app></app>
+</body>
+
+</html>

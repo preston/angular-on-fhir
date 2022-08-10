@@ -1,23 +1,23 @@
-import {Component, Injectable} from '@angular/core';
-import {Headers, RequestOptions} from '@angular/http';
+import { Injectable } from '@angular/core';
 
+import Client from 'fhir-kit-client';
 
-@Injectable()
+import FHIR from 'fhirclient';
+// import { fhirclient } from 'fhirclient/lib/types';
+
+import { FhirServer } from '../models/server';
+@Injectable({providedIn: 'root'})
 export class FhirService {
+    public servers: Array<{ name: string, url: string }> = [
+        new FhirServer("Example Open Endpoint", "https://api.logicahealth.org/GraphiteTestV450/open")
+    ]
 
-    private base: string;
+    public current: FhirServer = this.servers[0];
 
-    getUrl(): string {
-        return this.base;
-    }
+    public client: Client;
+    // public client = new Client({ baseUrl: this.current.url });
 
-    setUrl(url: string) {
-        this.base = url;
-    }
-
-    options(): RequestOptions {
-        let headers = new Headers({ 'Accept': 'application/json' });
-        return new RequestOptions({ headers: headers });
-    }
-
+    // reinitialize(bearerToken: string) {
+    //     this.client = new Client({ baseUrl: this.current.url, bearerToken: bearerToken });
+    // }
 }

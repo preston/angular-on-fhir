@@ -1,24 +1,32 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-    "compilerOptions": {
-        "target": "es6",
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "sourceMap": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "removeComments": false,
-        "noImplicitAny": false,
-        "outDir": "build",
-        "rootDir": "src"
-    },
     "compileOnSave": false,
-    "exclude": [
-        "node_modules",
-        "bower_components",
-        "typings/globals",
-        "typings/index.d.ts"
-    ],
-    "filesGlob": [
-        "src/**/*.ts"
-    ]
-}
+    "compilerOptions": {
+      "baseUrl": "./",
+      "outDir": "./dist/out-tsc",
+      "forceConsistentCasingInFileNames": true,
+      "strict": true,
+      "noImplicitReturns": true,
+      "noFallthroughCasesInSwitch": true,
+      "sourceMap": true,
+      "declaration": false,
+      "downlevelIteration": true,
+      "experimentalDecorators": true,
+      "moduleResolution": "node",
+      "importHelpers": true,
+      "target": "es2017",
+      "module": "es2020",
+      "lib": [
+        "es2018",
+        "dom"
+      ],
+      "allowSyntheticDefaultImports": true
+    },
+    "angularCompilerOptions": {
+      "enableI18nLegacyMessageIdFormat": false,
+      "strictInjectionParameters": true,
+      "strictInputAccessModifiers": true,
+      "strictTemplates": true,
+    }
+  }
+  

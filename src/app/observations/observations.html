@@ -1,0 +1,27 @@
+<section *ngIf="patient">
+    <h2>
+        <!-- <span class="glyphicon glyphicon-eye-open"></span>-->Observations
+    </h2>
+    <p class="text-default" *ngIf="observations.length == 0"><i>(none)</i></p>
+    <table class="table table-condensed table-striped" *ngIf="observations.length &gt; 0">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Category</th>
+                <th>Code</th>
+                <th>Value</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let o of observations">
+                <td>{{o?.effectiveDateTime | amTimeAgo}}</td>
+                <td><span>{{ o?.category! }}</span></td>
+                <td><span>{{ o?.code?.text}}</span></td>
+                <td><span>{{ o.valueQuantity?.value}}
+                        {{o.valueQuantity?.unit}}</span><span>{{o.valueCodeableConcept?.text}}</span></td>
+                <td>{{o.status}}</td>
+            </tr>
+        </tbody>
+    </table>
+</section>

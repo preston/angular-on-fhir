@@ -5,7 +5,9 @@
 .tscache
 
 # Generated files
+.angular
 build
+dist
 *.css
 *.map
 *.zip

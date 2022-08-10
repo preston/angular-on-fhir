@@ -1,0 +1,54 @@
+body {
+    background-color: none;
+    background: url('/images/textures/wild_oliva.png') repeat;
+    padding-top: 60px;
+}
+
+input:invalid,
+textarea:invalid {
+    box-shadow: 0 10px 10px rgba(220, 13, 23, 0.5);
+}
+
+header {
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    a {
+        transition: all 0.2s ease-out;
+        text-decoration: none;
+        &:default {
+            text-decoration: none;
+            text-shadow: -4px 4px 4px rgba(0, 0, 0, 0.4);
+            transition: all 0.2s ease-out;
+        }
+    }
+    footer p>span {
+        padding: 20px
+    }
+    // allergies h2, observations h2
+    // border-bottom: 1px solid #eee font-style: italic aside#sidebar>section,
+    allergies>section,
+    observations>section {
+        /*margin: 0 0px; */
+        padding: 8px;
+        border-radius: 2px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8); // background-color: none
+        // background: url('/images/textures/crossword.png') repeat
+        background: rgba(0, 0, 0, .4)
+    }
+    .highlight {
+        background: rgba(230, 230, 0, 0.5)
+    }
+}
+
+// @media (max-width: 768px)
+// .tagline
+//   display: none
+// table.table tbody tr
+//   &.selected
+//     background-color: #a7c6d8
+//     transition: all 0.2s ease-out
+//   transition: all 0.2s ease-out
+//   &:hover:not(.selected)
+//     background-color: #c7e6f8
+//     transition: all 0.2s ease-out
+// // h4
+//   border-bottom: 1px solid #ccc

@@ -1,0 +1,15 @@
+<section *ngIf="patient">
+    <h2>Allergies</h2>
+    <table class="table table-condensed table-striped">
+        <thead>
+            <tr>
+                <th>What goeth here, say ye?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of allergies">
+                <td>Something</td>
+            </tr>
+        </tbody>
+    </table>
+</section>

@@ -9,9 +9,9 @@ export class HumanizeBytesPipe implements PipeTransform {
         return this.doIt(parseInt(value));
     }
 
-    doIt(n): string {
+    doIt(n: number): string {
         if (n < 1024) {
-            return n;
+            return n.toString();
         }
         var si = ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'HiB'];
         var exp = Math.floor(Math.log(n) / Math.log(1024));
