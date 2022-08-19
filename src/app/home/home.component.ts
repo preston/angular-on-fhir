@@ -1,16 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { PatientComponent } from '../patient/patient.component';
 
-import FHIR from 'fhirclient';
 // const { ClientCredentials, ResourceOwnerPassword, AuthorizationCode } = require('simple-oauth2');
 
-import { GraphiteTracerService } from '../services/graphite_tracer.service';
-import { context, Span } from '@opentelemetry/api';
-// import Client from 'fhir-kit-client';
-import { environment } from 'src/environments/environment';
+import { TelemetryService } from '../services/telemetry.service';
 import { ActivatedRoute } from '@angular/router';
-import Client from 'fhirclient/lib/Client';
+
 import { FhirService } from '../services/fhir.service';
+import { Patient } from 'fhir/r4';
 
 @Component({
   selector: 'home',
@@ -21,56 +17,57 @@ export class HomeComponent implements OnInit {
   tab: string = 'reader';
 
   protected tracer;
-
+  protected code: string | null = null;
   // SMART launch stuff
-  public showPatientBanner = false;
-  protected client: Client | undefined;
+  // public showPatientBanner = false;
   isWritable = false;
 
-  constructor(protected tracerService: GraphiteTracerService, protected route: ActivatedRoute, protected fhirService: FhirService) {
-    this.tracer = tracerService.tracerProvider.getTracer('angular-on-fhir-tracer');
-    console.log("HomeComponent has been initialized.");
+
+  public today = Date.now();
+  public patient: Patient | undefined;
+
+  constructor(protected telemetryService: TelemetryService, protected route: ActivatedRoute, public fhirService: FhirService) {
+    this.tracer = telemetryService.tracerProvider.getTracer('angular-on-fhir-tracer');
+
+    this.fhirService.client?.read({ resourceType: 'Patient', id: this.fhirService.patient! }).then((r: any) => {
+      console.log("Patient read returned: " + r);
+      this.patient = r;
+      console.log("HomeComponent has been initialized.");
+    });
+
   }
 
+  displayName() {
+    let n = '';
+    if (this.patient?.name?.length) {
+      if (this.patient!.name![0].given) {
+        n += this.patient.name[0].given;
+      }
+      if (this.patient!.name![0].family) {
+        n += this.patient.name[0].family;
+      }
+    }
+    return n;
+  }
 
   ngOnInit(): void {
     let span = this.tracer.startSpan('home-component-initialization');
     console.log('Initializing home component.');
 
-    FHIR.oauth2.ready().then(client => {
-      this.client = client;
-      console.log("ID Token: " + client.getIdToken());
 
-      console.log(client.getAuthorizationHeader());
+    // this.client = client;
+    // console.log("ID Token: " + client.getIdToken());
 
-      this.fhirService.reinitialize(client.getAuthorizationHeader()!);
-      console.log("Configured fhir-kit-client to use bearer token: " + this.fhirService.client.bearerToken);
+    // console.log(client.getAuthorizationHeader());
 
-      this.showPatientBanner = client.getState('tokenResponse.need_patient_banner');
-      console.log('Show patient banner: ' + this.showPatientBanner);
-      // this.client.
-      // this.setWritableScope(client);
-    });
+    // this.fhirService.client.bearerToken = client.getAuthorizationHeader()!;
+    // // this.fhirService.reinitialize(client.getAuthorizationHeader()!);
+    // console.log("Configured fhir-kit-client to use bearer token: " + this.fhirService.client.bearerToken);
+
+    // this.showPatientBanner = client.getState('tokenResponse.need_patient_banner');
+    // console.log('Show patient banner: ' + this.showPatientBanner);
+    // this.setWritableScope(client);
     span.end();
   }
-
-  // setWritableScope(client: Client) {
-  //     var writable = false;
-  //     var scope: string = client.getState('tokenResponse.scope');
-  //     var scopes = scope ? scope.split(" ") : [];
-  //     scopes.forEach(value => {
-  //       if (value === "patient/*.*" ||
-  //         value === "patient/*.write" ||
-  //         value === "patient/Observation.write" ||
-  //         value === "user/*.write" ||
-  //         value === "user/*.*"
-  //       ) {
-  //         writable = true;
-  //       }
-  //     });
-
-  //     this.isWritable = writable;
-  //     return writable;
-  //   }
 
 }

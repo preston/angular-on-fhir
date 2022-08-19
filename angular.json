@@ -5,6 +5,7 @@
     },
     "version": 1,
     "newProjectRoot": "projects",
+    "defaultProject": "angular-on-fhir",
     "projects": {
         "angular-on-fhir": {
             "projectType": "application",
@@ -31,21 +32,28 @@
                         "inlineStyleLanguage": "scss",
                         "assets": [
                             "src/favicon.ico",
-                            "src/assets"
+                            "src/assets",
+                            "src/images"
                         ],
                         "styles": [
-                            "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+                            "./node_modules/bootstrap/dist/css/bootstrap.css",
                             "./node_modules/bootstrap-icons/font/bootstrap-icons.css",
-                            "src/styles/styles.scss"
+                            "src/styles/lux.bootstrap.min.css",
+                            "src/styles/styles.scss",
+                            "src/styles/ribbons.scss"
                         ],
-                        "scripts": ["./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
+                        "scripts": [
+                            "./node_modules/jquery/dist/jquery.min.js",
+                            "./node_modules/@popperjs/core/dist/umd/popper.min.js",
+                            "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+                        ]
                     },
                     "configurations": {
                         "production": {
                             "budgets": [{
                                     "type": "initial",
                                     "maximumWarning": "1mb",
-                                    "maximumError": "2mb"
+                                    "maximumError": "4mb"
                                 },
                                 {
                                     "type": "anyComponentStyle",
@@ -108,6 +116,5 @@
                 }
             }
         }
-    },
-    "defaultProject": "angular-on-fhir"
+    }
 }

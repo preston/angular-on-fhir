@@ -17,7 +17,7 @@ To run in development mode, just:
 Visit [http://localhost:9000](http://localhost:9000) and do your thang. :)
 
 The application, when loaded, should look similar to the following screenshot:
-![Metadata](https://raw.githubusercontent.com/preston/angular-on-fhir/master/src/images/screenshots/1.png)
+![Metadata](https://raw.githubusercontent.com/preston/angular-on-fhir/master/doc/screenshots/1.png)
 
 ## Building for Production
 

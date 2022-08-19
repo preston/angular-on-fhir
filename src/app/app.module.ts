@@ -18,21 +18,24 @@ enableProdMode();
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-// import { HttpModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 // const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
 import { AppRoutingModule } from './app-routing.module';
 import { AllergiesComponent } from './allergies/allergies.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-
+// import { OAuthModule } from 'angular-oauth2-oidc';
 
 @NgModule({
     imports: [
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-		MomentModule
-        // HttpModule,
+		MomentModule,
+        HttpClientModule,
+        NgbModule
+        // OAuthModule.forRoot()
     ],       // module dependencies
     declarations: [
         ApiComponent,

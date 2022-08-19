@@ -14,7 +14,7 @@ export class AllergiesComponent {
     @Input() patient: Patient | undefined;
 
     constructor(private fhirService: FhirService) {
-        console.log("ActivityService created...");
+        console.log("AllergiesComponent created...");
     }
 
 }

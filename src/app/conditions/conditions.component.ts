@@ -21,7 +21,7 @@ export class ConditionsComponent {
 
     ngOnChanges() {
         if (this.patient) {
-            this.fhirService.client.search({resourceType: 'Condition', compartment: {resourceType: 'Patient', id:  this.patient.id!}}).then((data) => {
+            this.fhirService.client?.search({resourceType: 'Condition', compartment: {resourceType: 'Patient', id:  this.patient.id!}}).then((data) => {
 				if(data.entry) {
                 	this.conditions = <Array<Condition>>data.resource;
                 	console.log("Loaded " + this.conditions.length + " conditions.");
