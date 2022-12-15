@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 
   tab: string = 'reader';
 
-  protected tracer;
+  // protected tracer;
   protected code: string | null = null;
   // SMART launch stuff
   // public showPatientBanner = false;
@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   public patient: Patient | undefined;
 
   constructor(protected telemetryService: TelemetryService, protected route: ActivatedRoute, public fhirService: FhirService) {
-    this.tracer = telemetryService.tracerProvider.getTracer('angular-on-fhir-tracer');
+    // this.tracer = telemetryService.tracerProvider.getTracer('angular-on-fhir-tracer');
 
     this.fhirService.client?.read({ resourceType: 'Patient', id: this.fhirService.patient! }).then((r: any) => {
       console.log("Patient read returned: " + r);
@@ -51,7 +51,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let span = this.tracer.startSpan('home-component-initialization');
+    // let span = this.tracer.startSpan('home-component-initialization');
     console.log('Initializing home component.');
 
 
@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
     // this.showPatientBanner = client.getState('tokenResponse.need_patient_banner');
     // console.log('Show patient banner: ' + this.showPatientBanner);
     // this.setWritableScope(client);
-    span.end();
+    // span.end();
   }
 
 }

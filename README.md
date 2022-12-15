@@ -1,10 +1,10 @@
 # Angular on FHIR
 
-Angular 14 base project with Bootstrap 5 for SMART-on-FHIR-based UIs.
+Angular 15 base project with Bootstrap 5 for SMART-on-FHIR-based UIs.
 
 ## Developer Quick Start
 
-This is an [AngularJS 14](https://angular.io) project using `npm` as the package manager and build system, [SCSS](http://sass-lang.com) for CSS and [Bootstrap](http://getbootstrap.com/) for layout.
+This is an [AngularJS 15](https://angular.io) project using `npm` as the package manager and build system, [SCSS](http://sass-lang.com) for CSS and [Bootstrap](http://getbootstrap.com/) for layout.
 
 	npm install # to install project development dependencies
 	npm run start # to build and run in development mode
