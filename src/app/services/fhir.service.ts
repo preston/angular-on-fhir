@@ -13,6 +13,8 @@ export class FhirService {
     // ]
 
     // public current: FhirServer = this.servers[0];
+public    clientId = (window as any)["configuration"]["clientId"];
+public    debug = (window as any)["configuration"]["debug"] || false;
 
     public client: FKClient.default | undefined;
     public smartClient: SmartClient.default | undefined;
@@ -27,7 +29,7 @@ export class FhirService {
         // this.smartClient = new SmartClient.default();
     }
 
-    reinitialize() {
+    reinitializeSmart() {
         // bearerToken: string
         this.client = new FKClient.default({
             baseUrl: this.smartClient?.state.serverUrl!,

@@ -40,7 +40,7 @@ export class SmartLaunchComponent implements OnInit {
     // this.parseParams();
 
     if (!environment.clientId || environment.clientId == '') {
-      this.message = 'Application cannot launch due to a bad deployment configuration. The system administration needs to set a OAuth clientId set via the EXAMPLE_CLIENT_ID environment variable. It is currently set to "' + environment.clientId + '".';
+      this.message = 'Application cannot launch due to a bad deployment configuration. The system administration needs to set a OAuth clientId set via the FHIR_CLIENT_ID environment variable. It is currently set to "' + environment.clientId + '".';
       console.error(this.message);
     }
     //  else if (this.iss == null || this.launch == null) {

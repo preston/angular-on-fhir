@@ -4,6 +4,9 @@
 # TypeScript cache
 .tscache
 
+# Runtime-generated files
+src/assets/configuration.js
+
 # Generated files
 .angular
 build

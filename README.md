@@ -19,8 +19,8 @@ Visiting the application directly at [http://localhost:4200](http://localhost:42
   
 Set and export the following environment variables in your shell:
 
-	export EXAMPLE_CLIENT_ID=<client_id_from_smart_launcher>
-	export EXAMPLE_DEBUG=true
+	export FHIR_CLIENT_ID=<client_id_from_smart_launcher>
+	export FHIR_DEBUG=true
  
 The application, when loaded, should look similar to the following screenshot:
 ![Metadata](https://raw.githubusercontent.com/preston/angular-on-fhir/master/doc/screenshots/1.png)
