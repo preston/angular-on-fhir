@@ -13,8 +13,8 @@ export class FhirService {
     // ]
 
     // public current: FhirServer = this.servers[0];
-public    clientId = (window as any)["configuration"]["clientId"];
-public    debug = (window as any)["configuration"]["debug"] || false;
+    public clientId = (window as any)["configuration"]["clientId"];
+    public debug = (window as any)["configuration"]["debug"] || false;
 
     public client: FKClient.default | undefined;
     public smartClient: SmartClient.default | undefined;
@@ -37,6 +37,15 @@ public    debug = (window as any)["configuration"]["debug"] || false;
         });
         // this.client.
         this.patient = this.smartClient?.patient.id;
+    }
+
+    reinitializeManually(url: string, token: string) {
+        this.client = new FKClient.default({
+            baseUrl: url,
+            bearerToken: token
+        });
+        this.patient = null;
+        this.smartClient = undefined;
     }
 
 }

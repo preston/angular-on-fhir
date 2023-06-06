@@ -1,3 +1,5 @@
+// Author: Preston Lee
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ApiComponent } from './api/api.component';
@@ -17,10 +19,3 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-
-// const appRoutes: Routes = [
-//     { path: '', component: HomeComponent },
-//     { path: 'api', component: ApiComponent }
-// ]
-// const appRoutingProviders: any[] = [];
-// const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
